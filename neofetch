@@ -53,14 +53,38 @@ read -rd '' config <<'EOF'
 # See this wiki page for more info:
 # https://github.com/dylanaraps/neofetch/wiki/Customizing-Info
 print_info() {
-    
+    info " ​ ​ ${cl5}██ " title
+    info underline
+
+    info " ​ ​ ${cl5}██ OS" distro
+    info " ​ ​ ${cl5}██ Host" model
+    info " ​ ​ ${cl5}██ Kernel" kernel
+    info " ​ ​ ${cl5}██ Uptime" uptime
+    info " ​ ​ ${cl5}██ Packages" packages
+    info " ​ ​ ${cl5}██ Shell" shell
+    info " ​ ​ ${cl5}██ Resolution" resolution
+    info " ​ ​ ${cl5}██ DE" de
+    info " ​ ​ ${cl5}██ WM" wm
+    info " ​ ​ ${cl5}██ WM Theme" wm_theme
+    info " ​ ​ ${cl5}██ Theme" theme
+    info " ​ ​ ${cl5}██ Icons" icons
+    info " ​ ​ ${cl5}██ Terminal" term
+    info " ​ ​ ${cl5}██ Terminal Font" term_font
     info " ​ ​ ${cl5}██ CPU" cpu
-    info " ​ ​ ${cl2}██ GPU" gpu
-    info " ​ ​ ${cl6}██ Distro" distro
-    info " ​ ​ ${cl4}██ Kernel" kernel
-    info " ​ ​ ${cl1}██ WM" wm
-    info " ​ ​ ${cl7}██ Shell" shell
-    info " ​ ​ ${cl3}██ Packages" packages 
+    info " ​ ​ ${cl5}██ GPU" gpu
+    info " ​ ​ ${cl5}██ Memory" memory
+
+    # info "GPU Driver" gpu_driver  # Linux/macOS only
+    # info "Disk" disk
+    # info "Battery" battery
+    # info "Font" font
+    # info "Song" song
+    # [[ "$player" ]] && prin "Music Player" "$player"
+    # info "Local IP" local_ip
+    # info "Public IP" public_ip
+    # info "Users" users
+    # info "Locale" locale  # This only works on glibc systems.
+
     info cols
 }
 # Title
