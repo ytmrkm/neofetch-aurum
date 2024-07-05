@@ -53,26 +53,35 @@ read -rd '' config <<'EOF'
 # See this wiki page for more info:
 # https://github.com/dylanaraps/neofetch/wiki/Customizing-Info
 print_info() {
+    prin "$(color 1)╭────────────────────────☘ ☘────────────────────────╮"
     info title
-    info underline
+    prin "$(color 1)╰────────────────────────☘ ☘────────────────────────╯"
+    
+    prin "\n"
+    prin "$(color 1)╭────────────────────────☘ ☘────────────────────────╮"
+    info "$(color 2)☘ distro " distro
+    info "$(color 2)☘ Kernel " kernel
+    info "$(color 2)☘ Packages " packages
+    info "$(color 2)☘ Shell " shell
+    info "$(color 2)☘ Terminal " term
+    prin "$(color 1)╰────────────────────────☘ ☘────────────────────────╯"
 
-    info "OS" distro
-    info "Host" model
-    info "Kernel" kernel
-    info "Uptime" uptime
-    info "Packages" packages
-    info "Shell" shell
-    info "Resolution" resolution
-    info "DE" de
-    info "WM" wm
-    info "WM Theme" wm_theme
-    info "Theme" theme
-    info "Icons" icons
-    info "Terminal" term
-    info "Terminal Font" term_font
-    info "CPU" cpu
-    info "GPU" gpu
-    info "Memory" memory
+
+    prin "$(color 1)╭────────────────────────☘ ☘────────────────────────╮"
+    info "$(color 4)☘ Host " model    
+    info "$(color 4)☘ CPU " cpu
+    info "$(color 4)☘ GPU " gpu
+    info "$(color 4)☘ Resolution " resolution
+    prin "$(color 1)╰────────────────────────☘ ☘────────────────────────╯"
+
+    prin "$(color 1)╭────────────────────────☘ ☘────────────────────────╮"
+    info "$(color 5)☘ Uptime " uptime
+    info "$(color 5)☘ CPU Usage " cpu_usage
+    info "$(color 5)☘ Disk " disk
+    info "$(color 5)☘ Memory " memory
+    prin "$(color 1)╰────────────────────────☘ ☘────────────────────────╯"
+
+    info cols
 
     # info "GPU Driver" gpu_driver  # Linux/macOS only
     # info "Disk" disk
@@ -84,8 +93,6 @@ print_info() {
     # info "Public IP" public_ip
     # info "Users" users
     # info "Locale" locale  # This only works on glibc systems.
-
-    info cols
 }
 
 # Title
@@ -5530,20 +5537,32 @@ get_distro_ascii() {
 		set_colors 2 0
 		read -rd '' ascii_data <<'EOF'
 ${c1}
-  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠤⣴⣶⣶⣶⣶⣦⣤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-  ⠀⠀⠀⠀⠀⠀⣀⣴⣾⣿⣶⣄⠈⠻⣿⣿⣿⣿⣿⣿⡀⢰⣦⣀⠀⠀⠀⠀⠀⠀
-   ⠀⠀⠀⢠⣾⣿⣿⣿⣿⣿⣿⣷⣤⡀⠙⢿⣿⣿⣿⡇⠀⣿⣿⣷⡄⠀⠀⠀
-  ⠀⠀⠀⡰⠿⠿⠿⠿⠛⠛⠛⠛⠋⠉⠉⠀⠀⠈⠻⣿⡇⠀⣿⣿⣿⣿⣆⠀⠀⠀
-  ⠀⠀⣀⣤⣤⣤⣤⣴⣶⠖⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⣿⣿⣿⣿⡿⠂⠀⠀
-  ⠀⢀⣿⣿⣿⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⠋⢀⣴⡀⠀
-  ⠀⢸⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠟⠁⣠⣾⣿⡇⠀
-  ⠀⢸⣿⣿⠋⢀⣴⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⣿⡇⠀
-  ⠀⠈⠟⠁⣠⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⠁⠀
-  ⠀⠀⠠⣾⣿⣿⣿⣿⠀⢠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠴⠿⠿⠟⠛⠛⠛⠋⠀⠀
-  ⠀⠀⠀⠹⣿⣿⣿⣿⠀⢸⣿⣦⣄⠀⠀⣀⣀⣀⣤⣤⣤⣤⣤⣶⣶⣶⠆⠀⠀⠀
-  ⠀⠀⠀⠀⠘⢿⣿⣿⡄⠸⣿⣿⣿⣷⣄⡈⠙⢿⣿⣿⣿⣿⣿⣿⡿⠃⠀⠀⠀⠀
-  ⠀⠀⠀⠀⠀⠀⠉⠻⠇⠀⣿⣿⣿⣿⣿⣿⣦⡀⠉⠻⣿⡿⠟⠉⠀⠀⠀⠀⠀⠀
-    ⠀⠀⠀⠀⠀⠀⠀⠀⠙⠛⠻AP⠿⠿⠟⠓⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                 .:88888888:.
+                88888888.88888.                   ,-.
+              .8888888888888888.       ,       ,-.   ,-.
+              888888888888888888      / \\    (   )-(   )
+              88' _`88'_  `88888      \\ | ,,,.>-(   )-<
+              88 88 88 88  88888       \\|/   (   )-(   )
+              88_88_::_88_:88888        Y      `-'  `-'
+              88:::,::,:::::8888        | ___     `-'
+              88`:::::::::'`8888        |/__/
+             .88  `::::'    8:88.       |
+            8888            `8:888.     |
+          .8888'             `888888. __|____
+${c1}         .8888:..  .::.  ...:'8888888:.
+        .8888.'     :'     `'::`88:88888
+       .8888        '         `.888:8888.
+      888:8         .           888:88888
+    .888:88        .:           888:88888:
+    8888888.       ::           88:888888
+${c1}    `.::.888.      ::          .88888888
+   .::::::.888.    ::         :::`8888'.:.
+  ::::::::::.888   '         .::::::::::::
+  ::::::::::::.8    '      .:8::::::::::::.
+ .::::::::::::::.        .:888:::::::::::::
+ :::::::::::::::88:.__..:88888:::::::::::'
+  `'.:::::::::::88888888888.88:::::::::'
+        `':::_:' -- '' -'-' `':_::::'`
 EOF
 	;;
         "AIX"*)
