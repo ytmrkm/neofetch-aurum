@@ -5526,6 +5526,16 @@ get_distro_ascii() {
     #
     # $ascii_distro is the same as $distro.
     case $(trim "$ascii_distro") in
+	"aurumOS"*)
+		set_colors 2 0
+		read -rd '' ascii_data <<'EOF'
+		${c1} ▄       ▄
+▄ ▀▄   ▄▀ ▄
+█▄█▀███▀█▄█
+▀█████████▀
+ ▄▀     ▀▄ 
+EOF
+	;;
         "AIX"*)
             set_colors 2 7
             read -rd '' ascii_data <<'EOF'
